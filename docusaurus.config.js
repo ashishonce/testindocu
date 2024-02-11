@@ -5,7 +5,6 @@
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
 import { themes as prismThemes } from 'prism-react-renderer';
-import sidebars from './sidebars';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -59,6 +58,23 @@ const config = {
         },
       }),
     ],
+    [
+      'redocusaurus',
+      {
+        // Plugin Options for loading OpenAPI files
+        specs: [
+          {
+            spec: 'static/openapi/openapi.yaml',
+            route: '/api/',
+          },
+        ],
+        // Theme Options for modifying how redoc renders them
+        theme: {
+          // Change with your site colors
+          primaryColor: '#1890ff',
+        },
+      },
+    ]
   ],
 
   themeConfig:
@@ -80,6 +96,8 @@ const config = {
             label: 'Tutorial',
           },
           { to: '/blog', label: 'Blog', position: 'left' },
+          { to: '/api', label: 'API', position: 'left' },
+
           {
             href: 'https://github.com/facebook/docusaurus',
             label: 'GitHub',
@@ -87,6 +105,7 @@ const config = {
           },
         ],
       },
+      
       footer: {
         style: 'dark',
         links: [
