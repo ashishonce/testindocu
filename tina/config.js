@@ -18,6 +18,7 @@ export default defineConfig({
   token:'53d69f6579946f79be11c37e30644ff2d0678be9',
 
   build: {
+    basePath: "/testindocu",
     outputFolder: "admin",
     publicFolder: "static",
   },
